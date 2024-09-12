@@ -1,0 +1,119 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Inventory</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <!-- Inventory Items Input -->
+       <ion-card>
+        <ion-card>
+      <ion-item>
+        <ion-label style="flex: 3;">Crates</ion-label>
+        <ion-label style="flex: 1;">Quantity</ion-label>
+        <ion-input
+          name="crates"
+          slot="end"
+          style="width: 40px; margin-right: 30px; border-radius: 2px; border: 1px solid black;"
+          type="number"
+        ></ion-input>
+      </ion-item>
+    </ion-card>
+    <ion-card>
+      <ion-item>
+        <ion-label style="flex: 3;">Fibers</ion-label>
+        <ion-label style="flex: 1;">Quantity</ion-label>
+        <ion-input
+          name="fibers"
+          slot="end"
+          style="width: 40px; margin-right: 30px; border-radius: 2px; border: 1px solid black;"
+          type="number"
+        ></ion-input>
+      </ion-item>
+      </ion-card>
+
+      <ion-card>
+      <ion-item>
+        <ion-label style="flex: 3;">Carpet</ion-label>
+        <ion-label style="flex: 1;">Quantity</ion-label>
+        <ion-input
+          name="carpet"
+          slot="end"
+          style="width: 40px; margin-right: 30px; border-radius: 2px; border: 1px solid black;"
+          type="number"
+        ></ion-input>
+      </ion-item>
+      </ion-card>
+      
+      <ion-card>
+      <ion-item>
+        <ion-label style="flex: 3;">Flooring</ion-label>
+        <ion-label style="flex: 1;">Quantity</ion-label>
+        <ion-input
+          name="flooring"
+          slot="end"
+          style="width: 40px; margin-right: 30px; border-radius: 2px; border: 1px solid black;"
+          type="number"
+        ></ion-input>
+      </ion-item>
+      </ion-card>
+
+      <ion-card>
+      <ion-item>
+        <ion-label style="flex: 3;">Padding</ion-label>
+        <ion-label style="flex: 1;">Quantity</ion-label>
+        <ion-input
+          name="padding"
+          slot="end"
+          style="width: 40px; margin-right: 30px; border-radius: 2px; border: 1px solid black;"
+          type="number"
+        ></ion-input>
+      </ion-item>
+      </ion-card>
+
+    <ion-card>
+      <ion-item>
+        <ion-label style="flex: 3;">Skids</ion-label>
+        <ion-label style="flex: 1;">Quantity</ion-label>
+        <ion-input
+          name="skids"
+          slot="end"
+          style="width: 40px; margin-right: 30px; border-radius: 2px; border: 1px solid black;"
+          type="number"
+        ></ion-input>
+      </ion-item>
+      </ion-card>
+
+       <ion-card>
+      <ion-item>
+        <ion-label style="flex: 3;">Other</ion-label>
+        <ion-label style="flex: 1;">Quantity</ion-label>
+        <ion-button slot="end" style="margin-right: 30px;" (click)="addOther()">Add</ion-button>
+      </ion-item>
+      </ion-card>
+    </ion-card>
+    </ion-toolbar>
+  </ion-header>
+
+  <!-- Button to capture/upload an image -->
+   <ion-card>
+ <ion-item>
+  <ion-text>Photos of Freight/Inside Crate</ion-text>
+  <ion-button  (click)="takePicture()"><ion-icon name="camera-outline"></ion-icon></ion-button>
+ </ion-item>
+</ion-card>
+
+  <!-- Show Image, Date, Time, and Delete option if an image is selected -->
+  <div *ngIf="imageUrl">
+    <ion-card>
+      <img [src]="imageUrl" alt="Uploaded Image" />
+      <ion-card-content>
+        <p>Date: {{ imageDetails?.date }}</p>
+        <p>Time: {{ imageDetails?.time }}</p>
+        <ion-button color="danger" (click)="deleteImage()">Delete</ion-button>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>
